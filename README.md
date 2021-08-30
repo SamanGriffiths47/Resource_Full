@@ -10,11 +10,11 @@
 <h3><b>:calendar: Planning :calendar:</b></h3>
 <br>
 <p align='left'>React Component Hierarchy:</p>
-<img src='./images/CHD.png' width='460px' height='250px'/>
+<img src='./images/RF-CHD.png' width='460px' height='250px'/>
 <br>
 <br>
 <p align='left'>Entity Relationship Diagram:</p>
-<img src='./images/ERD.png' width='460px' height='250px'/>
+<img src='./images/RF-ERD.png' width='460px' height='250px'/>
 <br>
 <br>
 <p align='left'>Technologies Used:</p>
