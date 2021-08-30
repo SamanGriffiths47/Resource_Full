@@ -1,0 +1,30 @@
+{
+  "name": "resource_full",
+  "version": "1.0.0",
+  "description": "<div align='center'>  <h1><img src='./images/YourPng.com - 1306x900.png' width='50px' align='left'/> Resource Full <img src='./images/YourPng.com - 1306x900.png' width='50px' align='right'/></h1> <h3><b>Designed & Executed By: Sam'an Griffiths</b></h3> :triangular_ruler: :memo: :computer: :hourglass_flowing_sand: <br>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamanGriffiths47/Resource_Full.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SamanGriffiths47/Resource_Full/issues"
+  },
+  "homepage": "https://github.com/SamanGriffiths47/Resource_Full#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.8",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.12"
+  }
+}
