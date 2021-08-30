@@ -27,7 +27,8 @@
 </a> | <a>Deployment Link Here</a>
 </div>
 <br>
-### Future Additions ### :thinking: :thought_balloon:
+
+### Future Additions :thinking: :thought_balloon:
 
 - [ ]  User authentification
 
