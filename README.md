@@ -1,4 +1,4 @@
-<div align='center'>  <h1><img src='./images/YourPng.com - 1306x900.png' width='50px' align='left'/> Resource Full <img src='./images/YourPng.com - 1306x900.png' width='50px' align='right'/></h1>
+<div align='center'>  <h1><img src='./client/public/images/YourPng.com - 1306x900.png' width='50px' align='left'/> Resource Full <img src='./client/public/images/YourPng.com - 1306x900.png' width='50px' align='right'/></h1>
 <h3><b>Designed & Executed By: Sam'an Griffiths</b></h3>
 :triangular_ruler: :memo: :computer: :hourglass_flowing_sand:
 <br>
@@ -10,15 +10,15 @@
 <h3><b>:calendar: Planning :calendar:</b></h3>
 <br>
 <p align='left'>React Component Hierarchy:</p>
-<img src='./images/RF-CHD.png' width='460px' height='250px'/>
+<img src='./client/public/images/RF-CHD.png' width='460px' height='250px'/>
 <br>
 <br>
 <p align='left'>Entity Relationship Diagram:</p>
-<img src='./images/RF-ERD.png' width='460px' height='250px'/>
+<img src='./client/public/images/RF-ERD.png' width='460px' height='250px'/>
 <br>
 <br>
 <p align='left'>Technologies Used:</p>
-<img src='./images/MERN.png' width='460px'/>
+<img src='./client/public/images/MERN.png' width='460px'/>
 <br>
 <br>
 <br>
