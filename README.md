@@ -35,8 +35,6 @@
 
 - [ ]  Post Reactions
 
-- [ ]  Commenting
-
 - [ ]  Give users the option to report a post
 
 - [ ]  Create a contact us for user suggestions
