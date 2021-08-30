@@ -1,4 +1,4 @@
-<div align='center'>  <h1><img src='./images/YourPng.com - 1306x900.png' width='50px' style='float: left;'/> Resource Full <img src='./images/YourPng.com - 1306x900.png' width='50px' style='float: right;'/></h1>
+<div align='center'>  <h1><img src='./images/YourPng.com - 1306x900.png' width='50px' align='left'/> Resource Full <img src='./images/YourPng.com - 1306x900.png' width='50px' align='right'/></h1>
 <h3><b>Designed & Executed By: Sam'an Griffiths</b></h3>
 :triangular_ruler: :memo: :computer: :hourglass_flowing_sand:
 <br>
