@@ -1,4 +1,4 @@
-<center>  <h1><img src='./images/YourPng.com - 1306x900.png' width='50px' style='float: left;'/> Resource Full <img src='./images/YourPng.com - 1306x900.png' width='50px' style='float: right;'/></h1>
+<center align='center'>  <h1><img src='./images/YourPng.com - 1306x900.png' width='50px' style='float: left;'/> Resource Full <img src='./images/YourPng.com - 1306x900.png' width='50px' style='float: right;'/></h1>
 <h3><b>Designed & Executed By: Sam'an Griffiths</b></h3>
 :triangular_ruler: :memo: :computer: :hourglass_flowing_sand:
 <br>
@@ -30,18 +30,18 @@
 
 ### Future Additions ### :thinking: :thought_balloon:
 
--[]  User authentification
+- [ ]  User authentification
 
--[]  Profile and background pictures for users
+- [ ]  Profile and background pictures for users
 
--[]  Post Reactions
+- [ ]  Post Reactions
 
--[]  Commenting
+- [ ]  Commenting
 
--[]  Give users the option to report a post
+- [ ]  Give users the option to report a post
 
--[]  Create a contact us for user suggestions
+- [ ]  Create a contact us for user suggestions
 
--[]  Create SOS posts that will function like Stack Overflow.
+- [ ]  Create SOS posts that will function like Stack Overflow.
 
--[]  Dark Mode
+- [ ]  Dark Mode
