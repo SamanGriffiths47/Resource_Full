@@ -1,4 +1,4 @@
-<center align='center'>  <h1><img src='./images/YourPng.com - 1306x900.png' width='50px' style='float: left;'/> Resource Full <img src='./images/YourPng.com - 1306x900.png' width='50px' style='float: right;'/></h1>
+<div align='center'>  <h1><img src='./images/YourPng.com - 1306x900.png' width='50px' style='float: left;'/> Resource Full <img src='./images/YourPng.com - 1306x900.png' width='50px' style='float: right;'/></h1>
 <h3><b>Designed & Executed By: Sam'an Griffiths</b></h3>
 :triangular_ruler: :memo: :computer: :hourglass_flowing_sand:
 <br>
@@ -26,7 +26,7 @@
 
 <a href='https://www.linkedin.com/in/saman-griffiths/' target='_blank'>Connect On LinkedIn</a> | <a href='https://trello.com/b/TzoAbVCg/resource-full' target='_blank'>Trello Board
 </a> | <a>Deployment Link Here</a>
-</center>
+</div>
 
 ### Future Additions ### :thinking: :thought_balloon:
 
