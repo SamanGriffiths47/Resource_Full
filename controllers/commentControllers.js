@@ -56,7 +56,7 @@ const commentsByWords = async (req, res) => {
 const commentById = async (req, res) => {
   try {
     const { _id } = req.params
-    const comment = await Comment.find({ _id: _id })
+    const comment = await Comment.findById(_id)
     return res.status(200).json({ comment })
   } catch (error) {
     return res.status(500).json({ error: error.message })
@@ -65,7 +65,22 @@ const commentById = async (req, res) => {
 const deleteCommentById = async (req, res) => {
   try {
     const { _id } = req.params
-    const comment = await Comment.deleteOne({ _id: _id })
+    const comment = await Comment.findById(_id)
+    const parentId = comment.parentPost
+    const filter = { _id: parentId }
+    const parentPost = await Post.findOne(filter)
+    const oldComments = parentPost.comments
+    const i = oldComments.indexOf(_id)
+    oldComments.splice(i, 1)
+    const update = { comments: oldComments }
+    await Post.findByIdAndUpdate(filter, update, (err, data) => {
+      if (err) {
+        console.log(err)
+      } else {
+        console.log("pimpin ain't easy")
+      }
+    })
+    await Comment.deleteOne({ _id: _id })
     return res.status(200).json({ comment })
   } catch (error) {
     return res.status(500).json({ error: error.message })
