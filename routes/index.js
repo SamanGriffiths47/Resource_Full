@@ -6,12 +6,20 @@ const router = Router()
 // Post Routes
 router.post('/c_post', postControllers.createPost)
 router.get('/posts', postControllers.allPosts)
-// router.get('/:skill', postControllers.postBySkill)
-// router.get('/:language', postControllers)
+router.get('/skill/:skill', postControllers.postsBySkill)
+router.get('/language/:language', postControllers.postsByLanguage)
+router.get('/user/:name', postControllers.postsByUser)
+router.get('/body/:words', postControllers.postsByWords)
+router.get('/p_id/:_id', postControllers.postById)
+router.delete('/d_post/:_id', postControllers.deletePostById)
 
 // Comment Routes
 router.post('/c_comment', commentControllers.createComment)
-// router.get('/comments', commentControllers.allComments)
+router.get('/comments', commentControllers.allComments)
+router.get('/user/:name', commentControllers.commentsByUser)
+router.get('/body/:words', commentControllers.commentsByWords)
+router.get('/c_id/:_id', commentControllers.commentById)
+router.delete('/d_comment/:_id', commentControllers.deleteCommentById)
 
 module.exports = router
 

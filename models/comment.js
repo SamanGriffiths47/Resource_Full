@@ -2,8 +2,10 @@ const { Schema } = require('mongoose')
 
 const CommentSchema = new Schema(
   {
-    authorName: { type: String, required: true },
+    user: { type: String, required: true },
+    userDisplay: { type: String, required: true },
     comment: { type: String, required: true },
+    commentDisplay: { type: String, required: true },
     parentPost: {
       type: Schema.Types.ObjectId,
       ref: 'Post',
