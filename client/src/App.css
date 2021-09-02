@@ -7,38 +7,123 @@ body {
 .App {
   text-align: center;
 }
-
-nav {
+:root {
+  --blue-: url;
+}
+/* .navContain {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
-  height: 50px;
+  height: 65px;
+  box-shadow: 0 0 40px #252525;
+} */
+.navbar {
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%; */
+  height: 65px;
   box-shadow: 0 0 40px #252525;
 }
-nav > a {
+/* .navbar > a {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-nav > a:hover {
+} */
+/* .navbar > a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+} */
+.imgButton {
+  margin-left: 2%;
 }
-nav > a > img {
+/* .nav-item::after {
+  display: none !important;
+} */
+/* .dropdown-toggle::after {
+  content: url(./images/triangle-up.png) !important;
+} */
+/* .nav-link::after {
+  display: none !important;
+} */
+/* .dropdown {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+} */
+.navbar > .imgButton > img {
   height: 35px;
   box-shadow: 0 0 10px #252525;
+  padding: 0;
+  margin: 0;
 }
-nav > a > img:hover {
+.navbar > .imgButton > img:hover {
   height: 34px;
   box-shadow: 0 0 3px #252525;
 }
-nav > a > img:active {
+.navbar > .imgButton > img:active {
   height: 34px;
   box-shadow: 0 0 0 #252525;
 }
+.form-control {
+  height: 30px;
+}
+.d-flex {
+  align-items: center;
+  /* margin-left: 10%;
+  margin-right: 10%; */
+}
+.navbar-toggler {
+  margin-right: 2%;
+}
+.navbar > .show {
+  margin-top: 12px;
+  /* padding-bottom: 10px; */
+  padding: 0 10% 10px 10%;
+  box-shadow: 0 40px 40px -35px #252525;
+  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity));
+}
+.collapsing {
+  margin-top: 12px;
+  padding: 0 10% 10px 10%;
+  box-shadow: 0 40px 40px -35px #252525;
+  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity));
+}
+.dropdown-menu {
+  box-shadow: 0 0 0 0 #252525 !important;
+}
+#btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 999px;
+  margin-left: 10%;
+  height: 32px;
+  width: 32px;
+}
+#btn > img {
+  height: 35px;
+  /* width: 35px; */
+  border-radius: 999px;
+  box-shadow: 0 0 10px #252525;
+}
+#btn > img:hover {
+  height: 32px;
+  width: 32px;
+  border-radius: 999px;
+  box-shadow: 0 0 5px #252525;
+}
+#btn > img:active {
+  height: 32px;
+  width: 32px;
+  border-radius: 999px;
+  box-shadow: 0 0 0 #252525;
+} /* 
 .search {
   display: flex;
   flex-direction: row;
@@ -51,7 +136,6 @@ nav > a > img:active {
   height: 30px;
   border: none;
   margin: 10px;
-  /* background-color: black; */
 }
 .search > input {
   text-align: center;
@@ -89,7 +173,7 @@ nav > a > img:active {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-}
+} */
 
 /* .App-logo {
   height: 40vmin;
