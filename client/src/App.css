@@ -26,17 +26,18 @@ nav > a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* box-shadow: 0 0 10px #252525; */
 }
 nav > a > img {
-  /* display: none; */
   height: 35px;
   box-shadow: 0 0 10px #252525;
 }
 nav > a > img:hover {
-  /* display: none; */
   height: 34px;
   box-shadow: 0 0 3px #252525;
+}
+nav > a > img:active {
+  height: 34px;
+  box-shadow: 0 0 0 #252525;
 }
 .search {
   display: flex;
@@ -58,20 +59,36 @@ nav > a > img:hover {
   border: 2px solid rgb(109, 109, 109);
 }
 .search > button {
-  height: 38px;
-  width: 38px;
-  /* padding-left: -2px;
-  padding-bottom: -2px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 999px;
+  height: 32px;
+  width: 32px;
 }
 .search > button > img {
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   border-radius: 999px;
+  box-shadow: 0 0 10px #252525;
+}
+.search > button > img:hover {
+  height: 32px;
+  width: 32px;
+  border-radius: 999px;
+  box-shadow: 0 0 5px #252525;
+}
+.search > button > img:active {
+  height: 32px;
+  width: 32px;
+  border-radius: 999px;
+  box-shadow: 0 0 0 #252525;
 }
 .dropdowns {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 /* .App-logo {

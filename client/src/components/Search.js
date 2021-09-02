@@ -11,7 +11,7 @@ export default function Search(props) {
         onChange={(e) => props.onChange(e)}
       />
       <button type="submit">
-        <img src="./images/search-icon.png" alt="logo" />
+        <img src="./images/search-icon.png" alt="logo" width="30px" />
       </button>
     </form>
   )
