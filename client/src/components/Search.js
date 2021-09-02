@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Search(props) {
   return (
-    <form onSubmit={(e) => props.onSubmit(e)}>
+    <form onSubmit={(e) => props.onSubmit(e)} className="search">
       <input
         type="text"
         name="search"
@@ -10,7 +10,9 @@ export default function Search(props) {
         placeholder="Your Search Here"
         onChange={(e) => props.onChange(e)}
       />
-      <button type="submit">Search</button>
+      <button type="submit">
+        <img src="./images/search-icon.png" alt="logo" />
+      </button>
     </form>
   )
 }
