@@ -3,12 +3,13 @@ const { Comment, Post } = require('../models')
 const createComment = async (req, res) => {
   try {
     const comment = await new Comment(req.body)
-    await comment.save()
+    console.log('YES')
     const parentId = comment.parentPost
     const filter = { _id: parentId }
     const parentPost = await Post.findOne(filter)
     const oldComments = parentPost.comments
     const update = { comments: [...oldComments, comment._id] }
+    await comment.save()
     Post.findByIdAndUpdate(filter, update, (err, data) => {
       if (err) {
         console.log(err)
@@ -77,7 +78,7 @@ const deleteCommentById = async (req, res) => {
       if (err) {
         console.log(err)
       } else {
-        console.log("pimpin ain't easy")
+        console.log('it worked')
       }
     })
     await Comment.deleteOne({ _id: _id })
@@ -86,11 +87,22 @@ const deleteCommentById = async (req, res) => {
     return res.status(500).json({ error: error.message })
   }
 }
+const commentByParentId = async (req, res) => {
+  try {
+    const { parent_id } = req.params
+    const comments = await Comment.find({ parentPost: parent_id })
+    return res.status(200).json(comments)
+  } catch (error) {
+    return res.status(500).json({ error: error.message })
+  }
+}
+
 module.exports = {
   createComment,
   allComments,
   commentsByUser,
   commentsByWords,
   commentById,
-  deleteCommentById
+  deleteCommentById,
+  commentByParentId
 }

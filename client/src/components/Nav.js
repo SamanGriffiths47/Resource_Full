@@ -2,12 +2,9 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
-import Button from 'react-bootstrap/Button'
 import Nav from 'react-bootstrap/Nav'
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
-import Search from './Search'
-import Dropdowns from './Dropdowns'
 
 export default function Navigation(props) {
   const up = '▲'
@@ -19,13 +16,13 @@ export default function Navigation(props) {
     props.changeCategory(e.target.innerText)
   }
 
-  const getSearchResults = async (e) => {
-    e.preventDefault()
-    const search = await axios.get(`f`)
-    props.setSearchQuery('')
-    props.setSearchResults(search.data.results)
-    props.toggleSearched(true)
-  }
+  // const getSearchResults = async (e) => {
+  //   e.preventDefault()
+  //   const search = await axios.get(`f`)
+  //   props.setSearchQuery('')
+  //   props.setSearchResults(search.data.results)
+  //   props.toggleSearched(true)
+  // }
   const handleChange = (e) => {
     props.setSearchQuery(e.target.value)
   }

@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Comment from './Comment'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
+import NewComment from './NewComment'
 
 export default function Post(props) {
+  const [comments, setComments] = useState([])
+  const [username, setUsername] = useState('')
+  const [comment, setComment] = useState('')
+  const [commentRender, setCommentRender] = useState(false)
   let languageList = ''
   let str = ''
   let skillsList = ''
+
   props.languages.map((language, i) => {
     if (i <= props.languages.length - 3) {
       str = `${language}, `
@@ -33,18 +39,36 @@ export default function Post(props) {
     }
     return skillsList
   })
-  const [comments, setComments] = useState([])
 
-  const grabComments = () => {
-    props.comments.map(async (com) => {
-      const res = await axios.get(`${BASE_URL}/c_id/${com}`)
-      const info = res.data.comment
-      setComments((prevState) => [...prevState, info])
-    })
+  const commentForm = (e) => {
+    setComment(e.target.value)
   }
+  const userForm = (e) => {
+    setUsername(e.target.value)
+  }
+
+  const createCommentOnSubmit = async (e) => {
+    e.preventDefault()
+
+    const newComment = {
+      comment: `${comment.toLowerCase()}`,
+      commentDisplay: `${comment}`,
+      parentPost: `${props.id}`,
+      user: `${username.toLowerCase()}`,
+      userDisplay: `${username}`
+    }
+    await axios.post(`${BASE_URL}/ccomment`, newComment)
+    return commentRender ? setCommentRender(false) : setCommentRender(true)
+  }
+
+  const grabComments = async () => {
+    const res = await axios.get(`${BASE_URL}/parent_id/${props.id}`)
+    setComments(res.data)
+  }
+
   useEffect(() => {
     grabComments()
-  }, [])
+  }, [commentRender])
   return (
     <div className="container">
       <table className="table table-dark table-striped">
@@ -63,7 +87,6 @@ export default function Post(props) {
           </tr>
         </tbody>
       </table>
-      {/* <div className="container overflow-hidden"> */}
       <div className="row gx-5 ">
         <div className="col">
           <div className="p-3 border bg-light">
@@ -80,7 +103,25 @@ export default function Post(props) {
           <div className="p-3 border bg-light">Comments</div>
         </div>
       </div>
-      <Comment comments={props.comments} />
+      <NewComment
+        commentForm={commentForm}
+        userForm={userForm}
+        setComment={setComment}
+        setUsername={setUsername}
+        createCommentOnSubmit={createCommentOnSubmit}
+      />
+      {comments.map((item) => {
+        return (
+          <Comment
+            key={item._id}
+            id={item._id}
+            user={item.userDisplay}
+            comment={item.commentDisplay}
+            commentRender={commentRender}
+            setCommentRender={setCommentRender}
+          />
+        )
+      })}
     </div>
   )
 }

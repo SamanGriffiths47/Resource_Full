@@ -10,12 +10,12 @@ import axios from 'axios'
 function App() {
   const dropDownDefault = 'Choose One'
   const [posts, setPosts] = useState([])
-  const [searched, toggleSearched] = useState(false)
-  const [searchResults, setSearchResults] = useState([])
-  const [searchQuery, setSearchQuery] = useState('')
-  const [color, setColor] = useState('')
-  const [model, setModel] = useState('')
-  const [brand, setBrand] = useState('')
+  // const [searched, toggleSearched] = useState(false)
+  // const [searchResults, setSearchResults] = useState([])
+  // const [searchQuery, setSearchQuery] = useState('')
+  // const [color, setColor] = useState('')
+  // const [model, setModel] = useState('')
+  // const [brand, setBrand] = useState('')
   const [request, toggleRequest] = useState(false)
   const [category, changeCategory] = useState(dropDownDefault)
   const [keyword, changeKeyword] = useState(dropDownDefault)
@@ -37,13 +37,13 @@ function App() {
   useEffect(() => {
     dd()
   }, [category])
-
+  console.log(posts)
   return (
     <div className="App">
       <Navigation
-        toggleSearched={toggleSearched}
-        setSearchQuery={setSearchQuery}
-        setSearchResults={setSearchResults}
+        // toggleSearched={toggleSearched}
+        // setSearchQuery={setSearchQuery}
+        // setSearchResults={setSearchResults}
         category={category}
         changeCategory={changeCategory}
         keyword={keyword}
@@ -65,6 +65,7 @@ function App() {
           <section>
             <Post
               key={one._id}
+              id={one._id}
               comments={one.comments}
               description={one.descriptionDisplay}
               languages={one.languageDisplay}
