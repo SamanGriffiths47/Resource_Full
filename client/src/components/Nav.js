@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
@@ -10,24 +10,13 @@ import Search from './Search'
 import Dropdowns from './Dropdowns'
 
 export default function Navigation(props) {
-  const up = './images/triangle-up.png'
-  const down = './images/triangle-down.png'
-  let triangle1 = down
-  let triangle2 = down
-  const triangle1Toggle = () => {
-    triangle1 = down ? (triangle1 = up) : (triangle1 = down)
-  }
-  const triangle2Toggle = () => {
-    triangle2 = down ? (triangle2 = up) : (triangle2 = down)
-  }
-  // const title1 =
+  const up = '▲'
+  const down = '▼'
+  const [triangle1, triangle1Toggle] = useState(`${down}`)
+  const [triangle2, triangle2Toggle] = useState(`${down}`)
+
   const catOnClick = (e) => {
     props.changeCategory(e.target.innerText)
-    // console.log
-  }
-
-  const keyOnClick = (e) => {
-    props.changeKeyword(e.target.innerText)
   }
 
   const getSearchResults = async (e) => {
@@ -40,12 +29,48 @@ export default function Navigation(props) {
   const handleChange = (e) => {
     props.setSearchQuery(e.target.value)
   }
+
+  const toggleTriangle1 = () => {
+    triangle1 === down ? triangle1Toggle(`${up}`) : triangle1Toggle(`${down}`)
+  }
+  const toggleTriangle2 = () => {
+    triangle2 === down ? triangle2Toggle(`${up}`) : triangle2Toggle(`${down}`)
+  }
+  const categories = () => {
+    return (
+      <NavDropdown
+        title={`Search: ${props.category} ${triangle1}`}
+        onClick={toggleTriangle1}
+        id="categories"
+      >
+        <NavDropdown.Item onClick={catOnClick}>Posts</NavDropdown.Item>
+        <NavDropdown.Item onClick={catOnClick}>Comments</NavDropdown.Item>
+        <NavDropdown.Item onClick={catOnClick}>Users</NavDropdown.Item>
+      </NavDropdown>
+    )
+  }
+
+  const keywords = () => {
+    return (
+      <NavDropdown
+        title={`By: ${props.keyword} ${triangle2}`}
+        onClick={toggleTriangle2}
+        id="keywords"
+      >
+        {props.dd()}
+      </NavDropdown>
+    )
+  }
+
+  useEffect(() => {
+    categories()
+  }, [triangle1])
+
+  useEffect(() => {
+    keywords()
+  }, [triangle2])
+
   return (
-    // <nav className="navigation">
-    //   <a href="..." className="anchor">
-
-    //   </a>
-
     <Navbar bg="light" expand="lg">
       <Navbar.Brand href="#" className="imgButton">
         <img
@@ -57,27 +82,13 @@ export default function Navigation(props) {
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
-        <Nav
-          className="mr-auto my-2 my-lg-0"
-          style={{ maxHeight: '100px' }}
-          navbarScroll
-        >
+        <Nav className="mr-auto my-2 my-lg-0" style={{ maxHeight: '100px' }}>
           {/* <Nav.Link href="#action1">Home</Nav.Link> */}
           {/* <Nav.Link href="#action2">Link</Nav.Link> */}
           {/* <Nav.Link href="#" disabled>Link</Nav.Link> */}
-          <NavDropdown title={`Search: ${props.category}`} id="categories">
-            triangle1
-            <NavDropdown.Item onClick={catOnClick}>Posts</NavDropdown.Item>
-            <NavDropdown.Item onClick={catOnClick}>Comments</NavDropdown.Item>
-            <NavDropdown.Item onClick={catOnClick}>Users</NavDropdown.Item>
-          </NavDropdown>
-          <NavDropdown
-            title={`By: ${props.keyword}`}
-            for="checkbox"
-            id="keywords"
-          >
-            <Dropdowns keyOnClick={keyOnClick} keyword={props.keyword} />
-          </NavDropdown>
+          {categories()}
+
+          {keywords()}
         </Nav>
         <Form className="d-flex" onSubmit={(e) => props.onSubmit(e)}>
           <FormControl
