@@ -1,5 +1,4 @@
 import React from 'react'
-
 export default function Post(props) {
   let languageList = ''
   let str = ''
@@ -28,6 +27,7 @@ export default function Post(props) {
       skillsList += str
     }
   })
+
   console.log(skillsList)
   return (
     <section>

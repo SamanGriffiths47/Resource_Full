@@ -62,15 +62,17 @@ function App() {
       /> */}
       {posts.map((one) => {
         return (
-          <Post
-            key={one._id}
-            comments={one.comments}
-            description={one.descriptionDisplay}
-            languages={one.languageDisplay}
-            link={one.link}
-            skills={one.skillDisplay}
-            user={one.userDisplay}
-          />
+          <section>
+            <Post
+              key={one._id}
+              comments={one.comments}
+              description={one.descriptionDisplay}
+              languages={one.languageDisplay}
+              link={one.link}
+              skills={one.skillDisplay}
+              user={one.userDisplay}
+            />
+          </section>
         )
       })}
     </div>
