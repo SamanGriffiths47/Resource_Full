@@ -1,4 +1,8 @@
 import React from 'react'
+import Comment from './Comment'
+import axios from 'axios'
+import { BASE_URL } from '../globals'
+
 export default function Post(props) {
   let languageList = ''
   let str = ''
@@ -14,6 +18,7 @@ export default function Post(props) {
       str = `${language}`
       languageList += str
     }
+    return languageList
   })
   props.skills.map((skill, i) => {
     if (i <= props.skills.length - 3) {
@@ -26,27 +31,56 @@ export default function Post(props) {
       str = `${skill}`
       skillsList += str
     }
+    return skillsList
   })
+  const [comments, setComments] = useState([])
 
-  console.log(skillsList)
+  const grabComments = () => {
+    props.comments.map(async (com) => {
+      const res = await axios.get(`${BASE_URL}/c_id/${com}`)
+      const info = res.data.comment
+      setComments((prevState) => [...prevState, info])
+    })
+  }
+  useEffect(() => {
+    grabComments()
+  }, [])
   return (
-    <section>
+    <div className="container">
       <table className="table table-dark table-striped">
         <thead>
           <tr>
-            <th>{`Posted By: ${props.user}`}</th>
-            <th>{`Language(s): ${languageList}`}</th>
-            <th>{`Skill(s): ${skillsList}`}</th>
+            <th>
+              <div>{`Posted By: ${props.user}`}</div>
+              <div>{`Language(s): ${languageList}`}</div>
+              <div>{`Skill(s): ${skillsList}`}</div>
+            </th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>{`Link: ${props.link}`}</td>
-            <td>dd</td>
-            <td>dd</td>
           </tr>
         </tbody>
       </table>
-    </section>
+      {/* <div className="container overflow-hidden"> */}
+      <div className="row gx-5 ">
+        <div className="col">
+          <div className="p-3 border bg-light">
+            <img
+              src="./logo192.png"
+              alt="react"
+              width="20px"
+              style={{ marginRight: '10px' }}
+            />
+            React
+          </div>
+        </div>
+        <div className="col">
+          <div className="p-3 border bg-light">Comments</div>
+        </div>
+      </div>
+      <Comment comments={props.comments} />
+    </div>
   )
 }
