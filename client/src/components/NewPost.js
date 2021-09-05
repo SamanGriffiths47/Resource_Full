@@ -13,19 +13,24 @@ export default function NewPost(props) {
 
   const userForm = (e) => {
     setUsername(e.target.value)
+    console.log(username)
   }
   const skillForm = (e) => {
     setSkill(e.target.value)
+    console.log(skill)
   }
   const descriptionForm = (e) => {
     setDescription(e.target.value)
+    console.log(description)
   }
 
   const linkForm = (e) => {
     setLink(e.target.value)
+    console.log(link)
   }
   const languageForm = (e) => {
     setLanguage(e.target.value)
+    console.log(language)
   }
   const createPostOnSubmit = async (e) => {
     e.preventDefault()
@@ -77,8 +82,16 @@ export default function NewPost(props) {
         <Form.Label>User Description</Form.Label>
         <Form.Control
           type="text"
-          placeholder="Enter Your Description"
+          placeholder="Enter Your Description Here"
           onChange={(e) => descriptionForm(e)}
+        />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="linkInput">
+        <Form.Label>Resource Link</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="Enter Link Here"
+          onChange={(e) => linkForm(e)}
         />
       </Form.Group>
       <Button

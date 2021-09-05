@@ -33,7 +33,6 @@ function App() {
   useEffect(() => {
     dd()
   }, [category])
-  console.log(posts)
   return (
     <div className="App">
       <Navigation
@@ -44,7 +43,6 @@ function App() {
         dropDownDefault={dropDownDefault}
         dd={dd}
       />
-
       <Switch>
         <Route
           exact
