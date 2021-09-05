@@ -3,7 +3,6 @@ const { Comment, Post } = require('../models')
 const createComment = async (req, res) => {
   try {
     const comment = await new Comment(req.body)
-    console.log('YES')
     const parentId = comment.parentPost
     const filter = { _id: parentId }
     const parentPost = await Post.findOne(filter)

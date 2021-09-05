@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { BASE_URL } from './globals'
 import './App.css'
 import Navigation from './components/Nav'
+import { Route, Switch } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Dropdowns from './components/Dropdowns'
 import Post from './components/Post'
@@ -10,12 +11,6 @@ import axios from 'axios'
 function App() {
   const dropDownDefault = 'Choose One'
   const [posts, setPosts] = useState([])
-  // const [searched, toggleSearched] = useState(false)
-  // const [searchResults, setSearchResults] = useState([])
-  // const [searchQuery, setSearchQuery] = useState('')
-  // const [color, setColor] = useState('')
-  // const [model, setModel] = useState('')
-  // const [brand, setBrand] = useState('')
   const [request, toggleRequest] = useState(false)
   const [category, changeCategory] = useState(dropDownDefault)
   const [keyword, changeKeyword] = useState(dropDownDefault)
@@ -41,9 +36,6 @@ function App() {
   return (
     <div className="App">
       <Navigation
-        // toggleSearched={toggleSearched}
-        // setSearchQuery={setSearchQuery}
-        // setSearchResults={setSearchResults}
         category={category}
         changeCategory={changeCategory}
         keyword={keyword}
@@ -51,31 +43,34 @@ function App() {
         dropDownDefault={dropDownDefault}
         dd={dd}
       />
-      {/* <Post
-      key={one.id}
-      comments={one.comments}
-      description={one.descriptionDisplay}
-      languages={one.languageDisplay}
-      link={one.link}
-      skills={one.skillDisplay}
-      user={one.userDisplay}
-      /> */}
-      {posts.map((one) => {
-        return (
-          <section>
-            <Post
-              key={one._id}
-              id={one._id}
-              comments={one.comments}
-              description={one.descriptionDisplay}
-              languages={one.languageDisplay}
-              link={one.link}
-              skills={one.skillDisplay}
-              user={one.userDisplay}
-            />
-          </section>
-        )
-      })}
+
+      <Switch>
+        <Route
+          exact
+          path="/"
+          component={(props) => (
+            <div className="postDisplay">
+              {posts.map((one) => {
+                return (
+                  <section>
+                    <Post
+                      {...props}
+                      key={one._id}
+                      id={one._id}
+                      comments={one.comments}
+                      description={one.descriptionDisplay}
+                      languages={one.languageDisplay}
+                      link={one.link}
+                      skills={one.skillDisplay}
+                      user={one.userDisplay}
+                    />
+                  </section>
+                )
+              })}
+            </div>
+          )}
+        />
+      </Switch>
     </div>
   )
 }
