@@ -57,6 +57,7 @@ export default function NewPost(props) {
       <Form.Group className="mb-3" controlId="userInput">
         <Form.Label>User</Form.Label>
         <Form.Control
+          value={props.value}
           type="text"
           placeholder="Enter UserName"
           onChange={(e) => userForm(e)}
@@ -65,6 +66,7 @@ export default function NewPost(props) {
       <Form.Group className="mb-3" controlId="languageInput">
         <Form.Label>Relevant Language(s)</Form.Label>
         <Form.Control
+          value={props.value}
           type="text"
           placeholder="Enter Language(s)"
           onChange={(e) => languageForm(e)}
@@ -73,6 +75,7 @@ export default function NewPost(props) {
       <Form.Group className="mb-3" controlId="skillInput">
         <Form.Label>Relevant Skill(s)</Form.Label>
         <Form.Control
+          value={props.value}
           type="text"
           placeholder="Enter Skill(s)"
           onChange={(e) => skillForm(e)}
@@ -81,6 +84,7 @@ export default function NewPost(props) {
       <Form.Group className="mb-3" controlId="descriptionInput">
         <Form.Label>User Description</Form.Label>
         <Form.Control
+          value={props.value}
           type="text"
           placeholder="Enter Your Description Here"
           onChange={(e) => descriptionForm(e)}
@@ -89,6 +93,7 @@ export default function NewPost(props) {
       <Form.Group className="mb-3" controlId="linkInput">
         <Form.Label>Resource Link</Form.Label>
         <Form.Control
+          value={props.value}
           type="text"
           placeholder="Enter Link Here"
           onChange={(e) => linkForm(e)}
