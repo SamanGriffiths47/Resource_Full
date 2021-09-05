@@ -13,25 +13,20 @@ export default function NewPost(props) {
 
   const userForm = (e) => {
     setUsername(e.target.value)
-    console.log(username)
   }
   const skillForm = (e) => {
     setSkill(e.target.value)
-    console.log(skill)
   }
   const descriptionForm = (e) => {
     setDescription(e.target.value)
-    console.log(description)
   }
-
   const linkForm = (e) => {
     setLink(e.target.value)
-    console.log(link)
   }
   const languageForm = (e) => {
     setLanguage(e.target.value)
-    console.log(language)
   }
+
   const createPostOnSubmit = async (e) => {
     e.preventDefault()
 
