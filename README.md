@@ -24,7 +24,7 @@
 <br>
 
 <a href='https://www.linkedin.com/in/saman-griffiths/' target='_blank'>Connect On LinkedIn</a> | <a href='https://trello.com/b/TzoAbVCg/resource-full' target='_blank'>Trello Board
-</a> | <a>Deployment Link Here</a>
+</a> | <a href='https://limitless-reaches-09126.herokuapp.com/'>Deployment Link Here</a>
 </div>
 <br>
 

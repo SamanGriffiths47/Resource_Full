@@ -29,7 +29,7 @@ export default function NewPost(props) {
 
   const createPostOnSubmit = async (e) => {
     e.preventDefault()
-    console.log(e)
+
     const newPost = {
       language: [`${language.toLowerCase()}`],
       languageDisplay: [`${language}`],
@@ -43,7 +43,7 @@ export default function NewPost(props) {
       link: `${link}`
     }
 
-    await axios.post('http://localhost:3001/api/cpost', newPost)
+    await axios.post(`${BASE_URL}/cpost`, newPost)
 
     return props.postRender
       ? props.setPostRender(false)
