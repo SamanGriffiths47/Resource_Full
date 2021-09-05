@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Dropdowns from './components/Dropdowns'
 import Post from './components/Post'
 import axios from 'axios'
+import NewPost from './components/NewPost'
 
 function App() {
   const dropDownDefault = 'Choose One'
@@ -50,6 +51,7 @@ function App() {
           path="/"
           component={(props) => (
             <div className="postDisplay">
+              <NewPost {...props} />
               {posts.map((one) => {
                 return (
                   <section>

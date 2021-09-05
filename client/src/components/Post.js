@@ -80,12 +80,13 @@ export default function Post(props) {
               <div>{`Posted By: ${props.user}`}</div>
               <div>{`Language(s): ${languageList}`}</div>
               <div>{`Skill(s): ${skillsList}`}</div>
+              <div>{`Link: ${props.link}`}</div>
             </th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>{`Link: ${props.link}`}</td>
+            <td>{`Description: ${props.description}`}</td>
           </tr>
         </tbody>
       </table>
