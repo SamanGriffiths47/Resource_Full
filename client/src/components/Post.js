@@ -57,7 +57,9 @@ export default function Post(props) {
       user: `${username.toLowerCase()}`,
       userDisplay: `${username}`
     }
+
     await axios.post(`${BASE_URL}/ccomment`, newComment)
+
     return commentRender ? setCommentRender(false) : setCommentRender(true)
   }
 
