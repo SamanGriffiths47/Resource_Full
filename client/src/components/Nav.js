@@ -16,13 +16,6 @@ export default function Navigation(props) {
     props.changeCategory(e.target.innerText)
   }
 
-  // const getSearchResults = async (e) => {
-  //   e.preventDefault()
-  //   const search = await axios.get(`f`)
-  //   props.setSearchQuery('')
-  //   props.setSearchResults(search.data.results)
-  //   props.toggleSearched(true)
-  // }
   const handleChange = (e) => {
     props.setSearchQuery(e.target.value)
   }

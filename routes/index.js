@@ -23,5 +23,3 @@ router.get('/parent_id/:parent_id', commentControllers.commentByParentId)
 router.delete('/d_comment/:_id', commentControllers.deleteCommentById)
 
 module.exports = router
-
-// patch or put for update

@@ -13,7 +13,7 @@ const createComment = async (req, res) => {
       if (err) {
         console.log(err)
       } else {
-        console.log("pimpin ain't easy")
+        console.log("It's Done")
       }
     })
 
