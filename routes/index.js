@@ -4,7 +4,7 @@ const commentControllers = require('../controllers/commentControllers')
 const router = Router()
 
 // Post Routes
-router.post('/c_post', postControllers.createPost)
+router.post('/cpost', postControllers.createPost)
 router.get('/posts', postControllers.allPosts)
 router.get('/skill/:skill', postControllers.postsBySkill)
 router.get('/language/:language', postControllers.postsByLanguage)

@@ -29,26 +29,32 @@ export default function NewPost(props) {
 
   const createPostOnSubmit = async (e) => {
     e.preventDefault()
-
+    console.log(e)
     const newPost = {
-      language: `${language.toLowerCase()}`,
-      languageDisplay: `${language}`,
+      language: [`${language.toLowerCase()}`],
+      languageDisplay: [`${language}`],
       descriptionDisplay: `${language}`,
       description: `${description}`,
       comments: [],
-      skill: `${skill.toLowerCase()}`,
-      skillDisplay: `${skill}`,
+      skill: [`${skill.toLowerCase()}`],
+      skillDisplay: [`${skill}`],
       user: `${username.toLowerCase()}`,
       userDisplay: `${username}`,
       link: `${link}`
     }
 
-    await axios.post(`${BASE_URL}/c_post`, newPost)
+    await axios.post('http://localhost:3001/api/cpost', newPost)
 
-    props.postRender ? props.setPostRender(false) : props.setPostRender(true)
+    return props.postRender
+      ? props.setPostRender(false)
+      : props.setPostRender(true)
   }
   return (
-    <Form>
+    <Form
+      onSubmit={(e) => {
+        createPostOnSubmit(e)
+      }}
+    >
       <Form.Group className="mb-3" controlId="userInput">
         <Form.Label>User</Form.Label>
         <Form.Control
@@ -94,13 +100,7 @@ export default function NewPost(props) {
           onChange={(e) => linkForm(e)}
         />
       </Form.Group>
-      <Button
-        variant="primary"
-        type="submit"
-        onSubmit={(e) => {
-          createPostOnSubmit(e)
-        }}
-      >
+      <Button variant="primary" type="submit">
         Submit
       </Button>
     </Form>
