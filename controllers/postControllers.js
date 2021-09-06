@@ -2,14 +2,15 @@ const { Post } = require('../models')
 
 const createPost = async (req, res) => {
   try {
-    console.log('YEERRRR')
     const post = await new Post(req.body)
     await post.save()
     return res.status(201).json({
       post
     })
   } catch (error) {
-    return res.status(500).json({ error: error.message })
+    return res
+      .status(500)
+      .json({ error: `${error.message}, Post Creation Failed` })
   }
 }
 const allPosts = async (req, res) => {
@@ -17,7 +18,9 @@ const allPosts = async (req, res) => {
     const posts = await Post.find()
     return res.status(200).json({ posts })
   } catch (error) {
-    return res.status(500).json({ error: error.message })
+    return res
+      .status(500)
+      .json({ error: `${error.message}, Failed To Get All Posts` })
   }
 }
 const postsBySkill = async (req, res) => {
@@ -26,7 +29,9 @@ const postsBySkill = async (req, res) => {
     const posts = await Post.find({ skill: skill })
     return res.status(200).json({ posts })
   } catch (error) {
-    return res.status(500).json({ error: error.message })
+    return res
+      .status(500)
+      .json({ error: `${error.message}, Failed To Get Posts By Skill(s)` })
   }
 }
 
@@ -36,7 +41,9 @@ const postsByLanguage = async (req, res) => {
     const posts = await Post.find({ language: language })
     return res.status(200).json({ posts })
   } catch (error) {
-    return res.status(500).json({ error: error.message })
+    return res
+      .status(500)
+      .json({ error: `${error.message}, Failed To Get Posts By Language(s)` })
   }
 }
 const postsByUser = async (req, res) => {
@@ -45,7 +52,9 @@ const postsByUser = async (req, res) => {
     const posts = await Post.find({ user: name })
     return res.status(200).json({ posts })
   } catch (error) {
-    return res.status(500).json({ error: error.message })
+    return res
+      .status(500)
+      .json({ error: `${error.message}, Failed To Get Posts By User` })
   }
 }
 const postById = async (req, res) => {
@@ -54,7 +63,9 @@ const postById = async (req, res) => {
     const post = await Post.find({ _id: _id })
     return res.status(200).json({ post })
   } catch (error) {
-    return res.status(500).json({ error: error.message })
+    return res
+      .status(500)
+      .json({ error: `${error.message}, Failed To Get Post By Id` })
   }
 }
 const postsByWords = async (req, res) => {
@@ -68,7 +79,9 @@ const postsByWords = async (req, res) => {
     })
     return res.status(200).json({ results })
   } catch (error) {
-    return res.status(500).json({ error: error.message })
+    return res
+      .status(500)
+      .json({ error: `${error.message}, Failed To Get Posts By Keyword(s)` })
   }
 }
 const deletePostById = async (req, res) => {
@@ -77,7 +90,9 @@ const deletePostById = async (req, res) => {
     const post = await Post.deleteOne({ _id: _id })
     return res.status(200).json({ post })
   } catch (error) {
-    return res.status(500).json({ error: error.message })
+    return res
+      .status(500)
+      .json({ error: `${error.message}, Failed To Delete Post` })
   }
 }
 module.exports = {

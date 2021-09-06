@@ -11,15 +11,17 @@ const createComment = async (req, res) => {
     await comment.save()
     Post.findByIdAndUpdate(filter, update, (err, data) => {
       if (err) {
-        console.log(err)
+        console.log(`${err}, Failed To Add Comment Id To Post Array`)
       } else {
-        console.log("It's Done")
+        console.log('Success')
       }
     })
 
     return res.status(200).json({ comment })
   } catch (error) {
-    return res.status(500).json({ error: error.message })
+    return res
+      .status(500)
+      .json({ error: `${error.message}, Failed To Create Comment` })
   }
 }
 const allComments = async (req, res) => {
@@ -36,7 +38,9 @@ const commentsByUser = async (req, res) => {
     const comments = await Comment.find({ user: name })
     return res.status(200).json({ comments })
   } catch (error) {
-    return res.status(500).json({ error: error.message })
+    return res
+      .status(500)
+      .json({ error: `${error.message}, Failed To Get Comments By Username` })
   }
 }
 const commentsByWords = async (req, res) => {
@@ -50,7 +54,9 @@ const commentsByWords = async (req, res) => {
     })
     return res.status(200).json({ results })
   } catch (error) {
-    return res.status(500).json({ error: error.message })
+    return res
+      .status(500)
+      .json({ error: `${error.message}, Failed To Get Comments By Keyword(s)` })
   }
 }
 const commentById = async (req, res) => {
@@ -59,7 +65,9 @@ const commentById = async (req, res) => {
     const comment = await Comment.findById(_id)
     return res.status(200).json({ comment })
   } catch (error) {
-    return res.status(500).json({ error: error.message })
+    return res
+      .status(500)
+      .json({ error: `${error.message}, Failed To Get Comment By Id` })
   }
 }
 const deleteCommentById = async (req, res) => {
@@ -75,15 +83,17 @@ const deleteCommentById = async (req, res) => {
     const update = { comments: oldComments }
     await Post.findByIdAndUpdate(filter, update, (err, data) => {
       if (err) {
-        console.log(err)
+        console.log(`${err}, Failed To Delete Comment Id From Post Array`)
       } else {
-        console.log('it worked')
+        console.log('Succes')
       }
     })
     await Comment.deleteOne({ _id: _id })
     return res.status(200).json({ comment })
   } catch (error) {
-    return res.status(500).json({ error: error.message })
+    return res
+      .status(500)
+      .json({ error: `${error.message}, Failed To Delete Comment` })
   }
 }
 const commentByParentId = async (req, res) => {
@@ -92,7 +102,9 @@ const commentByParentId = async (req, res) => {
     const comments = await Comment.find({ parentPost: parent_id })
     return res.status(200).json(comments)
   } catch (error) {
-    return res.status(500).json({ error: error.message })
+    return res
+      .status(500)
+      .json({ error: `${error.message}, Failed To Get Comments By Parent Id` })
   }
 }
 
