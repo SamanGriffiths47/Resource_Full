@@ -16,7 +16,9 @@ const createPost = async (req, res) => {
 const allPosts = async (req, res) => {
   try {
     const posts = await Post.find()
-    return res.status(200).json({ posts })
+    return res.status(201).json({
+      posts
+    })
   } catch (error) {
     return res
       .status(500)
@@ -27,7 +29,7 @@ const postsBySkill = async (req, res) => {
   try {
     const { skill } = req.params
     const posts = await Post.find({ skill: skill })
-    return res.status(200).json({ posts })
+    return res.status(201).json({ posts })
   } catch (error) {
     return res
       .status(500)
@@ -39,7 +41,7 @@ const postsByLanguage = async (req, res) => {
   try {
     const { language } = req.params
     const posts = await Post.find({ language: language })
-    return res.status(200).json({ posts })
+    return res.status(201).json({ posts })
   } catch (error) {
     return res
       .status(500)
@@ -50,7 +52,7 @@ const postsByUser = async (req, res) => {
   try {
     const { name } = req.params
     const posts = await Post.find({ user: name })
-    return res.status(200).json({ posts })
+    return res.status(201).json({ posts })
   } catch (error) {
     return res
       .status(500)
@@ -61,7 +63,7 @@ const postById = async (req, res) => {
   try {
     const { _id } = req.params
     const post = await Post.find({ _id: _id })
-    return res.status(200).json({ post })
+    return res.status(201).json({ post })
   } catch (error) {
     return res
       .status(500)
@@ -77,7 +79,7 @@ const postsByWords = async (req, res) => {
       const query = post.description
       query.search(words) >= 0 && results.push(post)
     })
-    return res.status(200).json({ results })
+    return res.status(201).json({ results })
   } catch (error) {
     return res
       .status(500)
@@ -88,7 +90,7 @@ const deletePostById = async (req, res) => {
   try {
     const { _id } = req.params
     const post = await Post.deleteOne({ _id: _id })
-    return res.status(200).json({ post })
+    return res.status(201).json({ post })
   } catch (error) {
     return res
       .status(500)
