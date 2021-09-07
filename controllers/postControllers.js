@@ -1,4 +1,5 @@
 const { Post } = require('../models')
+const { post } = require('../routes')
 
 const createPost = async (req, res) => {
   try {
@@ -16,6 +17,7 @@ const createPost = async (req, res) => {
 const allPosts = async (req, res) => {
   try {
     const posts = await Post.find()
+    console.log(posts)
     return res.status(201).json({
       posts
     })
