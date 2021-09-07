@@ -113,18 +113,16 @@ export default function Post(props) {
         setUsername={setUsername}
         createCommentOnSubmit={createCommentOnSubmit}
       />
-      {comments.map((item) => {
-        return (
-          <Comment
-            key={item._id}
-            id={item._id}
-            user={item.userDisplay}
-            comment={item.commentDisplay}
-            commentRender={commentRender}
-            setCommentRender={setCommentRender}
-          />
-        )
-      })}
+      {comments.map((item) => (
+        <Comment
+          key={item._id}
+          id={item._id}
+          user={item.userDisplay}
+          comment={item.commentDisplay}
+          commentRender={commentRender}
+          setCommentRender={setCommentRender}
+        />
+      ))}
     </div>
   )
 }

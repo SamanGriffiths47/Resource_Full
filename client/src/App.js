@@ -54,23 +54,21 @@ function App() {
                 postRender={postRender}
                 setPostRender={setPostRender}
               />
-              {posts.map((one) => {
-                return (
-                  <section>
-                    <Post
-                      {...props}
-                      key={one._id}
-                      id={one._id}
-                      comments={one.comments}
-                      description={one.descriptionDisplay}
-                      languages={one.languageDisplay}
-                      link={one.link}
-                      skills={one.skillDisplay}
-                      user={one.userDisplay}
-                    />
-                  </section>
-                )
-              })}
+              {posts.map((one, index) => (
+                <section>
+                  <Post
+                    {...props}
+                    key={index}
+                    id={one._id}
+                    comments={one.comments}
+                    description={one.descriptionDisplay}
+                    languages={one.languageDisplay}
+                    link={one.link}
+                    skills={one.skillDisplay}
+                    user={one.userDisplay}
+                  />
+                </section>
+              ))}
             </div>
           )}
         />
