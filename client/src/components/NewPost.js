@@ -50,11 +50,7 @@ export default function NewPost(props) {
       : props.setPostRender(true)
   }
   return (
-    <Form
-      onSubmit={(e) => {
-        createPostOnSubmit(e)
-      }}
-    >
+    <Form onSubmit={(e) => createPostOnSubmit(e)}>
       <Form.Group className="mb-3" controlId="userInput">
         <Form.Label>User</Form.Label>
         <Form.Control
