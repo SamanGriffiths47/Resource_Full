@@ -14,7 +14,7 @@ function App() {
   const [posts, setPosts] = useState([])
   const [category, changeCategory] = useState(dropDownDefault)
   const [keyword, changeKeyword] = useState(dropDownDefault)
-  const [postRender, setPostRender] = useState(false)
+  const [postRender, setPostRender] = useState(undefined)
 
   const grabPosts = async () => {
     const res = await axios.get(`${BASE_URL}/posts`)
@@ -27,9 +27,11 @@ function App() {
   const dd = () => {
     return <Dropdowns keyOnClick={keyOnClick} category={category} />
   }
-  useEffect(() => {
-    grabPosts()
-  }, [postRender])
+  postRender !== undefined &&
+    useEffect(() => {
+      grabPosts()
+    }, [postRender])
+
   useEffect(() => {
     dd()
   }, [category])
