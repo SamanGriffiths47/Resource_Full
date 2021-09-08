@@ -27,10 +27,12 @@ function App() {
   const dd = () => {
     return <Dropdowns keyOnClick={keyOnClick} category={category} />
   }
-  postRender !== undefined &&
-    useEffect(() => {
+
+  useEffect(() => {
+    if (postRender !== undefined) {
       grabPosts()
-    }, [postRender])
+    }
+  }, [postRender])
 
   useEffect(() => {
     dd()
