@@ -14,14 +14,16 @@ const createPost = async (req, res) => {
       .json({ error: `${error.message}, Post Creation Failed` })
   }
 }
-const allPosts = async (req, res, next) => {
+const allPosts = async (req, res) => {
+  console.log('init')
   try {
+    console.log('try')
     const posts = await Post.find()
-    console.log(posts)
+    console.log('await')
     return res.status(201).json({
       posts
     })
-  } catch (next) {
+  } catch (error) {
     return res
       .status(500)
       .json({ error: `${error.message}, Failed To Get All Posts` })
