@@ -29,9 +29,7 @@ function App() {
   }
 
   useEffect(() => {
-    if (postRender !== undefined) {
-      grabPosts()
-    }
+    grabPosts()
   }, [postRender])
 
   useEffect(() => {
