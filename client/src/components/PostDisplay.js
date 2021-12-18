@@ -10,7 +10,7 @@ export default function PostDisplay(props) {
 
   const grabPosts = async () => {
     const res = await axios.get(`${BASE_URL}/posts`)
-    setPosts(res.data.posts)
+    setPosts(res.data.posts.reverse())
   }
 
   useEffect(() => {
