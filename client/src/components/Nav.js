@@ -15,7 +15,7 @@ export default function Navigation(props) {
 
   return (
     <Navbar expand="lg">
-      <Navbar.Brand href="#" className="imgButton">
+      <Navbar.Brand href="" className="imgButton">
         <img src="./images/logo.png" alt="logo" className="img" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
