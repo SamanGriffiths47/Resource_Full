@@ -1,104 +1,104 @@
-import React, { useState } from 'react'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import { useState } from 'react'
+import { Container, Button, Form } from 'react-bootstrap'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 
 export default function NewPost(props) {
-  const [username, setUsername] = useState('')
-  const [language, setLanguage] = useState('')
-  const [skill, setSkill] = useState('')
-  const [description, setDescription] = useState('')
-  const [link, setLink] = useState('')
+  const iState = {
+    userName: '',
+    technology: '',
+    skill: '',
+    description: '',
+    link: ''
+  }
+  const [form, setForm] = useState(iState)
 
-  const userForm = (e) => {
-    setUsername(e.target.value)
-  }
-  const skillForm = (e) => {
-    setSkill(e.target.value)
-  }
-  const descriptionForm = (e) => {
-    setDescription(e.target.value)
-  }
-  const linkForm = (e) => {
-    setLink(e.target.value)
-  }
-  const languageForm = (e) => {
-    setLanguage(e.target.value)
+  const onChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value })
   }
 
   const createPostOnSubmit = async (e) => {
     e.preventDefault()
 
     const newPost = {
-      language: [`${language.toLowerCase()}`],
-      languageDisplay: [`${language}`],
-      descriptionDisplay: `${language}`,
-      description: `${description}`,
+      language: [`${form.technology.toLowerCase()}`],
+      languageDisplay: [`${form.technology}`],
+      descriptionDisplay: `${form.description}`,
+      description: `${form.description}`,
       comments: [],
-      skill: [`${skill.toLowerCase()}`],
-      skillDisplay: [`${skill}`],
-      user: `${username.toLowerCase()}`,
-      userDisplay: `${username}`,
-      link: `${link}`
+      skill: [`${form.skill.toLowerCase()}`],
+      skillDisplay: [`${form.skill}`],
+      user: `${form.userName.toLowerCase()}`,
+      userDisplay: `${form.userName}`,
+      link: `${form.link}`
     }
 
     await axios.post(`${BASE_URL}/cpost`, newPost)
+
+    setForm(iState)
 
     return props.postRender
       ? props.setPostRender(false)
       : props.setPostRender(true)
   }
   return (
-    <Form onSubmit={(e) => createPostOnSubmit(e)}>
-      <Form.Group className="mb-3" controlId="userInput">
-        <Form.Label>User</Form.Label>
-        <Form.Control
-          value={props.value}
-          type="text"
-          placeholder="Enter UserName"
-          onChange={(e) => userForm(e)}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="languageInput">
-        <Form.Label>Relevant Language(s)</Form.Label>
-        <Form.Control
-          value={props.value}
-          type="text"
-          placeholder="Enter Language(s)"
-          onChange={(e) => languageForm(e)}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="skillInput">
-        <Form.Label>Relevant Skill(s)</Form.Label>
-        <Form.Control
-          value={props.value}
-          type="text"
-          placeholder="Enter Skill(s)"
-          onChange={(e) => skillForm(e)}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="descriptionInput">
-        <Form.Label>User Description</Form.Label>
-        <Form.Control
-          value={props.value}
-          type="text"
-          placeholder="Enter Your Description Here"
-          onChange={(e) => descriptionForm(e)}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="linkInput">
-        <Form.Label>Resource Link</Form.Label>
-        <Form.Control
-          value={props.value}
-          type="text"
-          placeholder="Enter Link Here"
-          onChange={(e) => linkForm(e)}
-        />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
+    <Container className="newPost">
+      <Form onSubmit={(e) => createPostOnSubmit(e)}>
+        <Form.Label>New Post Form</Form.Label>
+        <div className="formInps">
+          <Form.Group className="mb-3 inpOne">
+            <Form.Control
+              value={form.userName}
+              type="text"
+              placeholder="User Name"
+              id="UserName"
+              name="userName"
+              onChange={(e) => onChange(e)}
+            />
+            <Form.Control
+              value={form.technology}
+              type="text"
+              placeholder="Technology(ies)"
+              name="technology"
+              onChange={(e) => onChange(e)}
+            />
+            <Form.Control
+              value={form.skill}
+              type="text"
+              placeholder="Skill(s)"
+              id="Skill"
+              name="skill"
+              onChange={(e) => onChange(e)}
+            />
+          </Form.Group>
+          <Form.Control
+            value={form.description}
+            type="text"
+            placeholder="Description"
+            as="textarea"
+            id="Description"
+            name="description"
+            onChange={(e) => onChange(e)}
+          />
+          <Form.Group className="newPostFooter">
+            <Form.Control
+              value={form.link}
+              type="text"
+              placeholder="Resource Link"
+              onChange={(e) => onChange(e)}
+              id="Link"
+              name="link"
+            />
+            <Button
+              variant="primary"
+              type="submit"
+              className="btn btn-primary newPostBtn"
+            >
+              Submit
+            </Button>
+          </Form.Group>
+        </div>
+      </Form>
+    </Container>
   )
 }
