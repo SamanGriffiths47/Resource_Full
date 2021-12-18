@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Container, Button, Form } from 'react-bootstrap'
+import { Container, Button, Form, FormLabel } from 'react-bootstrap'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 
@@ -46,11 +46,16 @@ export default function NewPost(props) {
       <Form onSubmit={(e) => createPostOnSubmit(e)}>
         <Form.Label>New Post Form</Form.Label>
         <div className="formInps">
+          <div className="inpOne">
+            <Form.Label>Username</Form.Label>
+            <Form.Label>Technology(ies)</Form.Label>
+            <Form.Label>Skill(s)</Form.Label>
+          </div>
           <Form.Group className="mb-3 inpOne">
             <Form.Control
               value={form.userName}
               type="text"
-              placeholder="User Name"
+              placeholder="i.e. Pickle_Rick45"
               id="UserName"
               name="userName"
               onChange={(e) => onChange(e)}
@@ -58,14 +63,14 @@ export default function NewPost(props) {
             <Form.Control
               value={form.technology}
               type="text"
-              placeholder="Technology(ies)"
+              placeholder="i.e. JavaScript AngularJs"
               name="technology"
               onChange={(e) => onChange(e)}
             />
             <Form.Control
               value={form.skill}
               type="text"
-              placeholder="Skill(s)"
+              placeholder="i.e. while_loop seeding"
               id="Skill"
               name="skill"
               onChange={(e) => onChange(e)}

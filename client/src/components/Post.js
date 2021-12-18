@@ -68,7 +68,7 @@ export default function Post(props) {
       <div className="postInfo">
         <div className="infoRow titles">
           <div className="title info">Posted By:</div>
-          <div className="title info">Language(s): </div>
+          <div className="title info">Technology(ies): </div>
           <div className="title info">Skill(s): </div>
         </div>
         <div className="infoRow postContents">
