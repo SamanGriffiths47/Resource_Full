@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Button, Collapse, Container } from 'react-bootstrap'
 import Comment from './Comment'
 import axios from 'axios'
@@ -26,6 +26,7 @@ export default function Post(props) {
       } else if (i === arr.length - 1) {
         list += `${element}`
       }
+      return list
     })
     return list
   }

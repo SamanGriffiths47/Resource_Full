@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Collapse } from 'react-bootstrap'
-import NavDropdown from 'react-bootstrap/NavDropdown'
 
 export default function Dropdowns(props) {
   const up = '▲'
@@ -25,19 +24,33 @@ export default function Dropdowns(props) {
   }
 
   const navBarShow = () => {
-    if (window.innerWidth < 992) {
-      if (catShow || keyShow) {
-        !Object.values(
+    keyShow || catShow
+      ? !Object.values(
           document.querySelector('#navbarScroll').classList
         ).includes('show') &&
-          document.querySelector('#navbarScroll').classList.add('show')
-        document.querySelector('.navbar-toggler').classList.remove('collapsed')
-      }
-    } else {
-      Object.values(document.querySelector('#navbarScroll').classList).includes(
-        'show'
-      ) && document.querySelector('#navbarScroll').classList.remove('show')
-    }
+        document.querySelector('#navbarScroll').classList.add('show')
+      : Object.values(
+          document.querySelector('#navbarScroll').classList
+        ).includes('show') &&
+        document.querySelector('#navbarScroll').classList.remove('show')
+
+    // if (window.innerWidth < 992) {
+    //   if (catShow || keyShow) {
+    //     !Object.values(
+    //       document.querySelector('#navbarScroll').classList
+    //     ).includes('show') &&
+    //       document.querySelector('#navbarScroll').classList.add('show')
+    //     document.querySelector('.navbar-toggler').classList.remove('collapsed')
+    //   }
+    // } else {
+    //   console.log(
+    //     'SCROLL',
+    //     Object.values(document.querySelector('#navbarScroll').classList)
+    //   )
+    // Object.values(document.querySelector('#navbarScroll').classList).includes(
+    //   'show'
+    // ) && document.querySelector('#navbarScroll').classList.remove('show')
+    // }
   }
   window.addEventListener('resize', navBarShow)
 
@@ -96,9 +109,6 @@ export default function Dropdowns(props) {
             <li onClick={catOnClick}>Users</li>
           </ul>
         </Collapse>
-        {/* <NavDropdown.Item onClick={catOnClick}>Posts</NavDropdown.Item>
-          <NavDropdown.Item onClick={catOnClick}>Comments</NavDropdown.Item>
-          <NavDropdown.Item onClick={catOnClick}>Users</NavDropdown.Item> */}
       </div>
       <div
         onClick={keyWordDropDown}
@@ -112,33 +122,4 @@ export default function Dropdowns(props) {
       </div>
     </section>
   )
-  if (props.category === 'Posts') {
-    return (
-      <section className="dropdowns">
-        <NavDropdown.Item onClick={props.keyOnClick}>Language</NavDropdown.Item>
-        <NavDropdown.Item onClick={props.keyOnClick}>Skill</NavDropdown.Item>
-        <NavDropdown.Item onClick={props.keyOnClick}>User</NavDropdown.Item>
-        <NavDropdown.Item onClick={props.keyOnClick}>Keywords</NavDropdown.Item>
-      </section>
-    )
-  } else if (props.category === 'Comments') {
-    return (
-      <section className="dropdowns">
-        <NavDropdown.Item onClick={props.keyOnClick}>User</NavDropdown.Item>
-        <NavDropdown.Item onClick={props.keyOnClick}>Keywords</NavDropdown.Item>
-      </section>
-    )
-  } else if (props.category === 'Users') {
-    return (
-      <section className="dropdowns">
-        <NavDropdown.Item onClick={props.keyOnClick}>Name</NavDropdown.Item>
-      </section>
-    )
-  } else {
-    return (
-      <section className="dropdowns" style={{ textAlign: 'center' }}>
-        Choose A Search Category
-      </section>
-    )
-  }
 }

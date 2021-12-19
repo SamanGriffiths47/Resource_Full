@@ -1,18 +1,9 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
 import Navbar from 'react-bootstrap/Navbar'
-import NavDropdown from 'react-bootstrap/NavDropdown'
-import Nav from 'react-bootstrap/Nav'
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
-import { Collapse } from 'react-bootstrap'
 import Dropdowns from './Dropdowns'
 
 export default function Navigation(props) {
-  const handleChange = (e) => {
-    props.setSearchQuery(e.target.value)
-  }
-
   return (
     <Navbar expand="lg">
       <Navbar.Brand href="" className="imgButton">
