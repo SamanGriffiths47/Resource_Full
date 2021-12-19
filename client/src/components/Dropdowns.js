@@ -23,37 +23,6 @@ export default function Dropdowns(props) {
     changeKeyword(dropDownDefault)
   }
 
-  const navBarShow = () => {
-    keyShow || catShow
-      ? !Object.values(
-          document.querySelector('#navbarScroll').classList
-        ).includes('show') &&
-        document.querySelector('#navbarScroll').classList.add('show')
-      : Object.values(
-          document.querySelector('#navbarScroll').classList
-        ).includes('show') &&
-        document.querySelector('#navbarScroll').classList.remove('show')
-
-    // if (window.innerWidth < 992) {
-    //   if (catShow || keyShow) {
-    //     !Object.values(
-    //       document.querySelector('#navbarScroll').classList
-    //     ).includes('show') &&
-    //       document.querySelector('#navbarScroll').classList.add('show')
-    //     document.querySelector('.navbar-toggler').classList.remove('collapsed')
-    //   }
-    // } else {
-    //   console.log(
-    //     'SCROLL',
-    //     Object.values(document.querySelector('#navbarScroll').classList)
-    //   )
-    // Object.values(document.querySelector('#navbarScroll').classList).includes(
-    //   'show'
-    // ) && document.querySelector('#navbarScroll').classList.remove('show')
-    // }
-  }
-  window.addEventListener('resize', navBarShow)
-
   const categoryDropDown = () => {
     keyShow && setKeyShow(false)
     setCatShow(!catShow)

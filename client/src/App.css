@@ -51,12 +51,12 @@ body {
   margin-top: 1.5rem;
 }
 .navbar > .show {
-  margin-top: 12px;
-  padding: 0 10% 10px 10%;
+  padding: 0 10% 2% 10%;
   box-shadow: 0 40px 40px -35px #252525;
 }
 .navbar-collapse.collapsing {
   box-shadow: 0 40px 40px -35px #252525;
+  padding: 0 10% 2% 10%;
 }
 .navDropDown {
   color: rgb(115, 115, 115);
