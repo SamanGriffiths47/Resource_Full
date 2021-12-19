@@ -7,8 +7,8 @@ export default function Dropdowns(props) {
   const dropDownDefault = 'Choose One'
   const [catShow, setCatShow] = useState(false)
   const [keyShow, setKeyShow] = useState(false)
-  const triangle1 = catShow ? `${up}` : `${down}`
-  const triangle2 = keyShow ? `${up}` : `${down}`
+  const triangle1 = catShow ? up : down
+  const triangle2 = keyShow ? up : down
   const [category, changeCategory] = useState(dropDownDefault)
   const [keyword, changeKeyword] = useState(dropDownDefault)
 

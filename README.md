@@ -10,21 +10,21 @@
 <h3><b>:calendar: Planning :calendar:</b></h3>
 <br>
 <p align='left'>React Component Hierarchy:</p>
-<img src='./client/public/images/RF-CHD.png' width='460px' height='250px'/>
+<img src='./client/public/images/RF-CHD.png' width='810px' height='350px'/>
 <br>
 <br>
 <p align='left'>Entity Relationship Diagram:</p>
-<img src='./client/public/images/RF-ERD.png' width='460px' height='250px'/>
+<img src='./client/public/images/RF-ERD.png' width='810px' height='350px'/>
 <br>
 <br>
 <p align='left'>Technologies Used:</p>
-<img src='./client/public/images/MERN.png' width='460px'/>
+<img src='./client/public/images/MERN.png' width='810px'/>
 <br>
 <br>
 <br>
 
-<a href='https://www.linkedin.com/in/saman-griffiths/' target='_blank'>Connect On LinkedIn</a> | <a href='https://trello.com/b/TzoAbVCg/resource-full' target='_blank'>Trello Board
-</a> | <a href='https://limitless-reaches-09126.herokuapp.com/'>Deployment Link Here</a>
+<a href='https://www.linkedin.com/in/saman-griffiths/' target='_blank'>Connect On LinkedIn</a> | <a href='' target='_blank'>Portfolio
+</a> | <a href='https://resource-full.herokuapp.com'>Deployed Site</a>
 </div>
 <br>
 
