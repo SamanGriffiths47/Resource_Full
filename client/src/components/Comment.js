@@ -6,9 +6,9 @@ import axios from 'axios'
 export default function Comment(props) {
   const deleteCommentOnSubmit = async (e) => {
     await axios.delete(`${BASE_URL}/d_comment/${props.id}`)
-    return props.commentRender
-      ? props.setCommentRender(false)
-      : props.setCommentRender(true)
+    return props.postRender
+      ? props.setPostRender(false)
+      : props.setPostRender(true)
   }
 
   return (

@@ -27,9 +27,7 @@ export default function NewComment(props) {
 
     setForm(iState)
 
-    props.commentRender
-      ? props.setCommentRender(false)
-      : props.setCommentRender(true)
+    props.postRender ? props.setPostRender(false) : props.setPostRender(true)
   }
 
   const onChange = (e) => {

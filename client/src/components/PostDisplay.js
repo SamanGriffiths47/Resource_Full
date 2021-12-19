@@ -23,11 +23,11 @@ export default function PostDisplay(props) {
         postRender={postRender}
         setPostRender={setPostRender}
       />
-      {posts.map((one, index) => (
+      {posts.map((post, index) => (
         <Post
           {...props}
           key={index}
-          post={one}
+          post={post}
           setPostRender={setPostRender}
           postRender={postRender}
         />

@@ -14,11 +14,8 @@ const createPost = async (req, res) => {
   }
 }
 const allPosts = async (req, res) => {
-  console.log('init')
   try {
-    console.log('try')
-    const posts = await Post.find()
-    console.log('await')
+    const posts = await Post.find().populate('comments')
     return res.status(201).json({
       posts
     })

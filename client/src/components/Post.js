@@ -8,10 +8,7 @@ import { LinkPreview } from '@dhaiwat10/react-link-preview'
 
 export default function Post(props) {
   const post = props.post
-  const [comments, setComments] = useState([])
-  const [username, setUsername] = useState('')
-  const [comment, setComment] = useState('')
-  const [commentRender, setCommentRender] = useState(false)
+  const comments = post.comments
   const [show, setShow] = useState(false)
   const languageList = listFormat(post.languageDisplay)
   const skillsList = listFormat(post.skillDisplay)
@@ -38,11 +35,6 @@ export default function Post(props) {
     props.postRender ? props.setPostRender(false) : props.setPostRender(true)
   }
 
-  const grabComments = async () => {
-    const res = await axios.get(`${BASE_URL}/parent_id/${post._id}`)
-    setComments(res.data)
-  }
-
   function Fallback() {
     return (
       <div className="linkRow">
@@ -60,9 +52,6 @@ export default function Post(props) {
     return json.metadata
   }
 
-  useEffect(() => {
-    grabComments()
-  }, [commentRender])
   return (
     <Container>
       <div className="postInfo">
@@ -114,18 +103,18 @@ export default function Post(props) {
         <div id="commentCont">
           <NewComment
             postId={post._id}
-            commentRender={commentRender}
-            setCommentRender={setCommentRender}
+            postRender={props.postRender}
+            setPostRender={props.setPostRender}
           />
-          {comments.map((item, i) => (
+          {comments.map((comment, i) => (
             <Comment
-              key={item._id}
-              id={item._id}
+              key={comment._id}
+              id={comment._id}
               bckgrnd={i % 2 ? '#dac59f' : '#f0e1c0'}
-              user={item.userDisplay}
-              comment={item.commentDisplay}
-              commentRender={commentRender}
-              setCommentRender={setCommentRender}
+              user={comment.userDisplay}
+              comment={comment.commentDisplay}
+              postRender={props.postRender}
+              setPostRender={props.setPostRender}
             />
           ))}
         </div>

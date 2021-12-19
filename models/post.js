@@ -11,7 +11,7 @@ const PostSchema = new Schema(
     skill: [{ type: String, required: true }],
     skillDisplay: [{ type: String, required: true }],
     link: { type: String, required: true },
-    comments: [{ type: Schema.Types.ObjectId, required: false }]
+    comments: [{ type: Schema.Types.ObjectId, ref: 'Comment', required: false }]
   },
   { timestamps: true }
 )
