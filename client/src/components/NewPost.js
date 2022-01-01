@@ -51,7 +51,7 @@ export default function NewPost(props) {
             <Form.Label>Technology(ies)</Form.Label>
             <Form.Label>Skill(s)</Form.Label>
           </div>
-          <Form.Group className="mb-3 inpOne">
+          <Form.Group className="inpOne">
             <Form.Control
               value={form.userName}
               type="text"

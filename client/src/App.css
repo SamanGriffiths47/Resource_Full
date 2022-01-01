@@ -1,3 +1,7 @@
+:root {
+  --font: 2vh;
+}
+
 body {
   margin: 0%;
   padding: 0%;
@@ -9,30 +13,32 @@ body {
 }
 
 .navbar {
-  height: 65px;
+  height: 8vh;
   box-shadow: 0 0 40px #252525;
   background-color: rgb(255, 255, 255);
-  justify-content: space-between !important;
+  padding: 1.5vh 0 1.5vh 0 !important;
 }
 .imgButton {
-  margin-left: 2%;
+  display: flex;
+  align-items: center;
+  padding: 0 !important;
+  margin: auto 10vw auto 2% !important;
+  height: 5vh;
+  box-shadow: 0 0 10px #252525;
+}
+.imgButton:hover {
+  box-shadow: 0 0 7px #252525;
+}
+.imgButton:active {
+  box-shadow: 0 0 0 #252525;
 }
 .nav-link::after {
   display: none !important;
 }
 .navbar > .imgButton > img {
-  height: 35px;
-  box-shadow: 0 0 10px #252525;
+  height: 100%;
   padding: 0;
   margin: 0;
-}
-.navbar > .imgButton > img:hover {
-  height: 34px;
-  box-shadow: 0 0 7px #252525;
-}
-.navbar > .imgButton > img:active {
-  height: 34px;
-  box-shadow: 0 0 0 #252525;
 }
 .form-control {
   height: 30px;
@@ -42,6 +48,15 @@ body {
 }
 .navbar-toggler {
   margin-right: 2%;
+  height: 5vh;
+  width: 8vh;
+  padding: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar-toggler-icon {
+  height: 4vh !important;
 }
 .navbar-collapse {
   background-color: rgb(255, 255, 255) !important;
@@ -52,9 +67,11 @@ body {
 }
 .navbar > .show {
   padding: 0 10% 2% 10%;
+  margin-top: 1.2vh;
   box-shadow: 0 40px 40px -35px #252525;
 }
 .navbar-collapse.collapsing {
+  margin-top: 1.2vh;
   box-shadow: 0 40px 40px -35px #252525;
   padding: 0 10% 2% 10%;
 }
@@ -111,11 +128,16 @@ li:hover:not(.default) {
   width: 70vw !important;
   box-shadow: 0 0 5vw -2vw #252525;
 }
+.postCont * {
+  font-size: var(--font) !important;
+}
+.postCont > * {
+  width: 85.7% !important;
+}
 
 .container {
   padding: 0 !important;
   margin: 0 5vw 4vw 5vw !important;
-  width: 60vw !important;
   background-color: rgb(255, 255, 255);
 }
 .postDisplay {
@@ -127,15 +149,24 @@ li:hover:not(.default) {
 }
 
 .newPost {
-  margin-top: 55px !important;
+  margin-top: 5vh !important;
 }
-
+.form-label {
+  overflow: scroll;
+}
+.formInps {
+  height: 22vh;
+}
 .inpOne {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 0 !important;
   padding: 0 !important;
+  height: 4vh !important;
+}
+.inpOne * {
+  height: 4vh !important;
 }
 #UserName {
   border-top-left-radius: 6px !important;
@@ -158,24 +189,31 @@ button {
   text-align: center !important;
 }
 #Description {
-  height: 65px;
+  height: 10vh;
 }
 .newPostFooter {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  height: 4vh !important;
   margin: 0 !important;
   padding: 0 !important;
+}
+.newPostFooter * {
+  height: 4vh;
 }
 #Link {
   width: 100%;
 }
 .newPostBtn {
   line-height: 0 !important;
-  max-height: 30px !important;
 }
 
 .postInfo > * {
+  padding: 1vw;
+}
+.postInfo > .Container {
   padding: 1vw;
 }
 .infoRow {
@@ -212,35 +250,53 @@ button {
   border: 15px solid #dac59f !important;
   border-bottom: none !important;
   padding: 0 !important;
+  width: inherit !important;
   transition: background-color 1.5s !important;
 }
 div[data-testid='container']:hover {
   background-color: #f0e1c0 !important;
 }
 .btnRow {
-  padding: 0 !important;
+  width: 100%;
+  height: 3.5vh;
+  display: flex;
+  align-items: flex-start;
 }
 *:not(nav) > button {
   height: 30px;
   line-height: 0 !important;
 }
 #showComments {
-  width: calc(60vw - 109.34px);
+  width: 70%;
+  height: 3.5vh;
 }
-
-#commentHeader {
+#deletePost {
+  height: 3.5vh;
+  width: 30%;
+}
+#deletePost #commentHeader {
   display: flex;
   flex-direction: row;
   margin-top: 1rem;
 }
+#commentHeader {
+  width: 100%;
+  height: 3.5vh;
+  display: flex;
+  align-items: flex-start;
+}
 #userName {
-  width: calc(60vw - 109.34px) !important;
+  width: 70% !important;
+  display: inline-block;
+  height: inherit !important;
 }
 #commentHeader > button {
-  width: 109.34px !important;
+  height: 3.5vh;
+  /* margin-bottom: 5px; */
+  width: 30% !important;
 }
 #comment {
-  height: 65px;
+  height: 10vh;
 }
 .commentCont {
   display: grid;
@@ -250,6 +306,9 @@ div[data-testid='container']:hover {
   text-align: start;
   padding: 1vw 2vw;
   margin: 0;
+}
+.deleteCom {
+  height: 3.5vh;
 }
 
 @media (max-width: 992px) {
@@ -288,5 +347,17 @@ div[data-testid='container']:hover {
   }
   .navbar > .show {
     margin-top: 0;
+  }
+}
+
+@media (orientation: portrait) {
+  .postCont {
+    width: 90vw !important;
+  }
+  #deletePost {
+    padding: 0;
+    line-height: 100% !important;
+    font-size: calc(var(--font) / 1.3) !important;
+    overflow-wrap: break-word;
   }
 }

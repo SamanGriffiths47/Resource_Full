@@ -18,6 +18,7 @@ export default function Comment(props) {
       </p>
       <Button
         type="button"
+        className="deleteCom"
         variant="danger"
         onClick={(e) => {
           deleteCommentOnSubmit(e)
