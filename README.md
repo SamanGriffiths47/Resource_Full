@@ -24,7 +24,7 @@
 <br>
 <br>
 
-<a href='https://www.linkedin.com/in/saman-khaliq/' target='_blank'>LinkedIn</a> | <a href='https://www.samankhaliq.com/' target='_blank'>Portfolio
+<a href='https://www.linkedin.com/in/saman-khaliq/' target='_blank'>LinkedIn</a> | <a href='https://www.samanhg.com/' target='_blank'>Portfolio
 </a> | <a href='https://resource-full.herokuapp.com'>Deployed Site</a>
 </div>
 <br>
